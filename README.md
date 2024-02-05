@@ -55,9 +55,50 @@ To run the application, you simply need to run the `app.py` script in this repos
 
 - **Database:** The application employs an Azure SQL Database as its database system to store order-related data.
 
+- **Version Control:** The project is managed using Git, and the codebase is hosted on GitHub.
+
+- **Containerization:** The application is containerized using Docker, allowing for easy deployment and scaling.
+
+The dockerfile is as follows:
+
+```dockerfile#
+# Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.9.10-slim-buster
+# Step 2 - Set the working directory in the container
+WORKDIR /app
+# Step 3 Copy the application files in the container
+COPY . .
+# Install system dependencies and ODBC driver
+RUN apt-get update && apt-get install -y \
+    unixodbc unixodbc-dev odbcinst odbcinst1debian2 libpq-dev gcc && \
+    apt-get install -y gnupg && \
+    apt-get install -y wget && \
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
+    wget -qO- https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
+    apt-get update && \
+    ACCEPT_EULA=Y apt-get install -y msodbcsql18 && \
+    apt-get purge -y --auto-remove wget && \  
+    apt-get clean
+
+# Install pip and setuptools
+RUN pip install --upgrade pip setuptools
+
+# Step 4 - Install Python packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt 
+
+# Step 5 - Expose port 5000, app is accessible from the host machine
+EXPOSE 5000
+
+# TODO: Step 6 - Define Startup Command
+CMD ["python", "./app.py"]
+
+
+- **DevOps:** The project is managed using GitHub, and the CI/CD pipeline is implemented using GitHub Actions.
+
 ## Contributors 
 
-- [Maya Iuga]([https://github.com/yourusername](https://github.com/maya-a-iuga))
+- [Maya Iuga], [David Ansell] (https://github.com/davidmdansell) (https://github.com/maya-a-iuga)
+
 
 ## License
 
