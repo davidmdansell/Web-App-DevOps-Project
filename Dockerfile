@@ -1,8 +1,8 @@
-# TODO: Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
+# Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
 FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.9.10-slim-buster
-# TODO: Step 2 - Set the working directory in the container
+# Step 2 - Set the working directory in the container
 WORKDIR /app
-# TODO: Step 3 Copy the application files in the container
+# Step 3 Copy the application files in the container
 COPY . .
 # Install system dependencies and ODBC driver
 RUN apt-get update && apt-get install -y \
@@ -19,9 +19,9 @@ RUN apt-get update && apt-get install -y \
 # Install pip and setuptools
 RUN pip install --upgrade pip setuptools
 
-# TODO: Step 4 - Install Python packages specified in requirements.txt
+# Step 4 - Install Python packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt 
-# TODO: Step 5 - Expose port 
+# Step 5 - Expose port 
 EXPOSE 5000
-# TODO: Step 6 - Define Startup Command
+# Step 6 - Define Startup Command
 CMD ["python", "./app.py"]
