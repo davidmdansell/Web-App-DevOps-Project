@@ -1,6 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
-
+/my-networking-terraform-devops-project/networking-module/.terraform
 # .tfstate files
 *.tfstate
 *.tfstate.*
