@@ -2,8 +2,8 @@
 
 # Create the Azure Resource Group for networking resources
 resource "azurerm_resource_group" "networking" {
-  name     = "networking-resource-group"
-  location = "UK South"
+  name     = var.resource_group_name  
+  location = var.location
 }
 
 # Define the Virtual Network (VNet) for the AKS cluster
@@ -11,7 +11,7 @@ resource "azurerm_virtual_network" "aks-vnet" {
   name                = "aks-vnet"
   location            = azurerm_resource_group.networking.location
   resource_group_name = azurerm_resource_group.networking.name
-  address_space       = ["10.0.0.0/16"]
+  address_space       = var.vnet_address_space
 }
 
 # subnet within the VNet for control plane
