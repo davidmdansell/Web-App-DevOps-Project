@@ -3,7 +3,7 @@
 variable "aks_cluster_name" {
     description = "the name of the AKS cluster created"
     type        = string
-    default     = "aks-cluster"
+    default     = "terraform-aks-cluster"
     
 }
 
@@ -16,24 +16,27 @@ variable "cluster_location" {
 variable "dns_prefix" {
     description = "the DNS prefix creates the unique DNS identifier for the cluster"
     type        = string
+    default     = "myaks-project"
 
 }
 
 variable "kubernetes_version" {
     description = "version of Kubernetes to be used for the cluster"
     type        = string
-    default     = "1.19.3"
+    default     = "1.26.6"
 }
 
 variable "service_principal_client_id" {
     description = "Client ID of the service principal used for authenticating and managing the AKS cluster"
     type        = string
+    default     = "71040ef5-a631-458b-a981-0f37529ec295"
 
 }
 
 variable "service_principal_client_secret" {
     description = "Client Secret associated with the service principal used for AKS cluster authentication"
     type        = string
+    default     = "Ndn8Q~OiqE~giRDbI_n4Z3dpcI.uOiKMZyBCTcBU"
 
 }
 
@@ -66,5 +69,6 @@ variable "resource_group_name" {
 variable "aks_nsg_id" {
   description = "ID of the Network Security Group (NSG) for AKS."
   type        = string
-  
+
+
 }
