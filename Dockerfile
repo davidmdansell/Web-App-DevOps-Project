@@ -1,5 +1,5 @@
 # Step 1 - Use an official Python runtime as a parent image. You can use `python:3.8-slim`.
-FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.9.10-slim-buster
+FROM --platform=linux/amd64 public.ecr.aws/docker/library/python:3.8-slim
 # Step 2 - Set the working directory in the container
 WORKDIR /app
 # Step 3 Copy the application files in the container
