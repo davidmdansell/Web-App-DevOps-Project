@@ -3,7 +3,7 @@
 variable "aks_cluster_name" {
     description = "the name of the AKS cluster created"
     type        = string
-    default     = "aks-cluster"
+    default     = "terraform-aks-cluster"
     
 }
 
@@ -16,14 +16,14 @@ variable "cluster_location" {
 variable "dns_prefix" {
     description = "the DNS prefix creates the unique DNS identifier for the cluster"
     type        = string
-    default     = "aks-cluster-dns"
+    default     = "myaks-project"
 
 }
 
 variable "kubernetes_version" {
     description = "version of Kubernetes to be used for the cluster"
     type        = string
-    default     = "1.19.3"
+    default     = "1.26.6"
 }
 
 variable "service_principal_client_id" {
