@@ -3,7 +3,7 @@
 variable "resource_group_name" {
     description = "the name of the resource group in which the AKS cluster will be created"
     type        = string
-    default     = "aks-cluster-rg"
+    default     = "networking-rg"
   
 }
 
