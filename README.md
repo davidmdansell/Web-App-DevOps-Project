@@ -89,11 +89,53 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # Step 5 - Expose port 5000, app is accessible from the host machine
 EXPOSE 5000
 
+AKS Terraform Project Documentation
+
+This documentation provides an overview of the AKS (Azure Kubernetes Service) Terraform project, which is structured to provision networking resources and an AKS cluster using Infrastructure as Code (IaC) principles.
+
+The project is organized into two main modules:
+
+Networking Module: Responsible for provisioning necessary Azure networking services for the AKS cluster.
+AKS Cluster Module: Used to provision the AKS cluster itself.
+
+Directory Structure
+
+networking-module/: Contains Terraform files for networking resources.
+aks-cluster-module/: Contains Terraform files for the AKS cluster.
+Networking Module
+
+Input Variables
+resource_group_name: Name of the Azure Resource Group where networking resources will be deployed. Default value is "myResourceGroup".
+location: Azure region where networking resources will be deployed. Default value is "East US".
+vnet_address_space: Address space for the Virtual Network (VNet). Default value is ["10.0.0.0/16"].
+Resources Created
+Azure Resource Group: Name derived from the resource_group_name variable.
+Virtual Network (VNet): Named "aks-vnet".
+Control Plane Subnet: Named "control-plane-subnet".
+Worker Node Subnet: Named "worker-node-subnet".
+Network Security Group (NSG): Named "aks-nsg".
+Inbound rules:
+kube-apiserver-rule: Allow traffic to the kube-apiserver (port 443) from your public IP address.
+ssh-rule: Allow inbound SSH traffic (port 22) from your public IP address.
+Output Variables
+vnet_id: ID of the VNet.
+control_plane_subnet_id: ID of the control plane subnet.
+worker_node_subnet_id: ID of the worker node subnet.
+networking_resource_group_name: Name of the Azure Resource Group for networking resources.
+aks_nsg_id: ID of the Network Security Group.
+Conclusion
+
+This documentation outlines the structure and functionality of the AKS Terraform project. By following the defined modules and input/output variables, users can easily provision networking resources and an AKS cluster on Azure with Terraform.
+
+For detailed usage instructions and examples, refer to the Terraform files within each module.
+
+
+
 # TODO: Step 6 - Define Startup Command
 CMD ["python", "./app.py"]
 
 
-- **DevOps:** The project is managed using GitHub, and the CI/CD pipeline is implemented using GitHub Actions.
+
 
 ## Contributors 
 
