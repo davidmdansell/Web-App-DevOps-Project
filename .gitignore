@@ -1,6 +1,8 @@
 # Local .terraform directories
 **/.terraform/*
-
+Users/davidansell/devops-pipeline-project/Web-App-DevOps-Project/myterraform-project/networking-module/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.90.0/darwin_arm64/terraform-provider-azurerm_v3.90.0_x5
+*/Users/davidansell/devops-pipeline-project/Web-App-DevOps-Project/myterraform-project/networking-module/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.90.0/darwin_arm64/terraform-provider-azurerm_v3.90.0_x5
+**devops-pipeline-project/Web-App-DevOps-Project/myterraform-project/networking-module/.terraform/*
 # .tfstate files
 *.tfstate
 *.tfstate.*
