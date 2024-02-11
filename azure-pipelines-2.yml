@@ -15,15 +15,14 @@ steps:- task: Docker@2
     repository: 'davidmdansell/order-management-app:v1.0' # Replace with your Docker Hub username and image name
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile' # Path to your Dockerfile
-    tags: '$(Build.BuildId)'
-    addBaseImageData:
+    tags:'latest'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: '' # AKS service connection name
+    azureSubscriptionEndpoint: 'aks-service-connection' # AKS service connection name
     azureResourceGroup: 'networking-rg' # AKS resource group
     kubernetesCluster: 'terraform-aks-cluster' # AKS cluster name
     command: 'apply'
     useConfigurationFile: true
     configurationType: 'FilePath'
-    filePath: 'path/to/your/deployment-manifest.yaml' # Path to your deployment manifest in the repository
+    filePath: 'deployment-manifest.yaml' # Path to your deployment manifest in the repository
