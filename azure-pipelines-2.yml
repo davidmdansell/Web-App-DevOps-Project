@@ -9,15 +9,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-- task: Docker@2
-  inputs:
+task: Docker@2
+ inputs:
     containerRegistry: 'flask-app' # Your Docker Hub connection service name
     repository: 'davidmdansell/order-management-app:v1.0' # Replace with your Docker Hub username and image name
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile' # Path to your Dockerfile
     tags:'latest'
-- task: Kubernetes@1
-  inputs:
+task: Kubernetes@1
+ inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscriptionEndpoint: 'aks-service-connection' # AKS service connection name
     azureResourceGroup: 'networking-rg' # AKS resource group
