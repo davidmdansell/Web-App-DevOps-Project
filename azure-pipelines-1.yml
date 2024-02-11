@@ -3,6 +3,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+<<<<<<< Updated upstream
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
@@ -30,3 +31,5 @@ steps:
     azureResourceGroup: 'aks-rg'
     kubernetesCluster: 'aks-demo'
     manifests: 'deployment.yaml'
+=======
+>>>>>>> Stashed changes
