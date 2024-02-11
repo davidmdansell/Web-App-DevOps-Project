@@ -16,7 +16,7 @@ steps:
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: 'aks-service-connection' # AKS service connection name
+    azureSubscriptionEndpoint: 'azure-rm-service' # AKS service connection name
     azureResourceGroup: 'networking-rg' # AKS resource group
     kubernetesCluster: 'terraform-aks-cluster' # AKS cluster name
     command: 'apply'
