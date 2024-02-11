@@ -12,7 +12,7 @@ pool:
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'aks-service-connection' # Your Docker Hub connection service name
+    containerRegistry: 'flask-app' # Your Docker Hub connection service name
     repository: 'davidmdansell/order-management-app:v1.0' # Replace with your Docker Hub username and image name
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile' # Path to your Dockerfile
