@@ -20,8 +20,7 @@ steps:
     azureResourceGroup: 'networking-rg' # AKS resource group
     kubernetesCluster: 'terraform-aks-cluster' # AKS cluster name
     command: 'apply'
-    arguments: '-f **/application-manifest.yaml'
     secretType: 'None'
     useConfigurationFile: true
     configurationType: 'FilePath'
-    filePath: '**/application-manifest.yaml' # Path to your deployment manifest in the repository
+    filePath: '/Users/davidansell/devops-pipeline-project/Web-App-DevOps-Project/my-terraform-project/application-manifest.yaml' # Path to your deployment manifest in the repository
