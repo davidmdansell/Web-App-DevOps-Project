@@ -26,4 +26,4 @@ steps:
     command: 'apply'
     useConfigurationFile: true
     configurationType: 'FilePath'
-    filePath: '**/deployment-manifest.yaml' # Path to your deployment manifest in the repository
+    filePath: '**/application-manifest.yaml' # Path to your deployment manifest in the repository
