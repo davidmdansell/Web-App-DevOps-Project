@@ -8,10 +8,10 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'flask-app' # Your Docker Hub connection service name
-    repository: 'davidmdansell/order-management-app:v1.0' # Replace with your Docker Hub username and image name
+    repository: 'davidmdansell/order-management-app' # Replace with your Docker Hub username and image name
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile' # Path to your Dockerfile
-    tags: 'latest'
+    tags: 'v1.0'
 
 - task: Kubernetes@1
   inputs:
