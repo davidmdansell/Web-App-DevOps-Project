@@ -23,4 +23,4 @@ steps:
     secretType: 'None'
     useConfigurationFile: true
     configurationType: 'FilePath'
-    filePath: '/Users/davidansell/devops-pipeline-project/Web-App-DevOps-Project/my-terraform-project/application-manifest.yaml' # Path to your deployment manifest in the repository
+    filePath: '**/application-manifest.yaml' # Path to your deployment manifest in the repository
