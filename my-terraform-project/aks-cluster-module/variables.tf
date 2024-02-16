@@ -29,15 +29,13 @@ variable "kubernetes_version" {
 variable "service_principal_client_id" {
     description = "Client ID of the service principal used for authenticating and managing the AKS cluster"
     type        = string
-    default     = "71040ef5-a631-458b-a981-0f37529ec295"
 
 }
 
 variable "service_principal_client_secret" {
     description = "Client Secret associated with the service principal used for AKS cluster authentication"
     type        = string
-    default     = "Ndn8Q~OiqE~giRDbI_n4Z3dpcI.uOiKMZyBCTcBU"
-
+    
 }
 
 # Input variables from the networking module
